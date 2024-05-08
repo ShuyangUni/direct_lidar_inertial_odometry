@@ -112,6 +112,10 @@ add_dependencies(dlio_map_node ${catkin_EXPORTED_TARGETS} ${PROJECT_NAME}_genera
 target_compile_options(dlio_map_node PRIVATE ${OpenMP_FLAGS})
 target_link_libraries(dlio_map_node ${catkin_LIBRARIES} ${PCL_LIBRARIES} ${OpenMP_LIBS} Threads::Threads)
 
+# Odometry Save Node
+add_executable (odom_save_node src/odom_save_node.cc)
+target_link_libraries(odom_save_node ${catkin_LIBRARIES})
+
 # Binaries
 install( TARGETS dlio_odom_node dlio_map_node
          DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION} )
